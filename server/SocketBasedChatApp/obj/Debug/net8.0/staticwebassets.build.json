@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "3ShbAH2BIgL1xNyShsZq3P08f7fS2TMFRxmlweiisA0=",
+  "Source": "SocketBasedChatApp",
+  "BasePath": "_content/SocketBasedChatApp",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

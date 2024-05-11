@@ -1,0 +1,6 @@
+@SocketBasedChatApp_HostAddress = http://localhost:5278
+
+GET {{SocketBasedChatApp_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
