@@ -713,11 +713,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/abdurrahmanalpturan/Downloads/23-24_Bahar/ag-programlama/ag-programlama-proje/server/SocketBasedChatApp/SocketBasedChatApp.csproj",
+      "projectUniqueName": "/Users/abdurrahmanalpturan/Downloads/23-24_Bahar/ag-programlama/proje/server/SocketBasedChatApp/SocketBasedChatApp.csproj",
       "projectName": "SocketBasedChatApp",
-      "projectPath": "/Users/abdurrahmanalpturan/Downloads/23-24_Bahar/ag-programlama/ag-programlama-proje/server/SocketBasedChatApp/SocketBasedChatApp.csproj",
+      "projectPath": "/Users/abdurrahmanalpturan/Downloads/23-24_Bahar/ag-programlama/proje/server/SocketBasedChatApp/SocketBasedChatApp.csproj",
       "packagesPath": "/Users/abdurrahmanalpturan/.nuget/packages/",
-      "outputPath": "/Users/abdurrahmanalpturan/Downloads/23-24_Bahar/ag-programlama/ag-programlama-proje/server/SocketBasedChatApp/obj/",
+      "outputPath": "/Users/abdurrahmanalpturan/Downloads/23-24_Bahar/ag-programlama/proje/server/SocketBasedChatApp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/abdurrahmanalpturan/.nuget/NuGet/NuGet.Config"

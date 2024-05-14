@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "b5dcUnBs4/BmezLQjAP5H83pErahLg0Pkj+zO5zOPxe85j1/UYlqwNXAYtWTpJnjpJGIQlaHqImaQmjh0Gy5Xw==",
+  "dgSpecHash": "QmIC0ivo8O1OkKMuw8K67glHpszKOU8FIwI0jse8nWAWdxgHZwhgE55+oacIUHkKD5zxwJHG2VbJW7RLMpxE8Q==",
   "success": true,
-  "projectFilePath": "/Users/abdurrahmanalpturan/Downloads/23-24_Bahar/ag-programlama/ag-programlama-proje/server/SocketBasedChatApp/SocketBasedChatApp.csproj",
+  "projectFilePath": "/Users/abdurrahmanalpturan/Downloads/23-24_Bahar/ag-programlama/proje/server/SocketBasedChatApp/SocketBasedChatApp.csproj",
   "expectedPackageFiles": [
     "/Users/abdurrahmanalpturan/.nuget/packages/jquery/1.6.4/jquery.1.6.4.nupkg.sha512",
     "/Users/abdurrahmanalpturan/.nuget/packages/microsoft.aspnet.signalr/2.4.3/microsoft.aspnet.signalr.2.4.3.nupkg.sha512",
