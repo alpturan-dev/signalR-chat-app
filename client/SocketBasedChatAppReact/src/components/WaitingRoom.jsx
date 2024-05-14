@@ -1,8 +1,4 @@
-import { useState } from "react"
-
-const WaitingRoom = ({ joinChatRoom }) => {
-    const [username, setUsername] = useState("")
-    const [chatRoom, setChatRoom] = useState("")
+const WaitingRoom = ({ joinChatRoom, username, setUsername, chatRoom, setChatRoom }) => {
     return (
         <form
             onSubmit={(e) => {
