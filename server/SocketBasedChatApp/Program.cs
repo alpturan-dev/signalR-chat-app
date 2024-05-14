@@ -1,5 +1,7 @@
 using SocketBasedChatApp.Hubs;
 using SocketBasedChatApp.DataService;
+using SocketBasedChatApp.Models;
+using SocketBasedChatApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +23,8 @@ builder.Services.AddCors(opt =>
     });
 });
 builder.Services.AddSingleton<SharedDb>();
+builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDB"));
+builder.Services.AddSingleton<MongoDBService>();
 
 var app = builder.Build();
 
