@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const SendMessageForm = ({ sendMessage, chatRoom, username }) => {
+const SendMessageForm = ({ type, sendMessage, chatRoom, username }) => {
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
     return (
@@ -8,7 +8,11 @@ const SendMessageForm = ({ sendMessage, chatRoom, username }) => {
             onSubmit={async (e) => {
                 e.preventDefault();
                 setLoading(true);
-                await sendMessage(chatRoom, message, username);
+                if (type === "global") {
+                    await sendMessage('global', message, username);
+                } else {
+                    await sendMessage(chatRoom, message, username);
+                }
                 setMessage("");
                 setLoading(false);
             }}
