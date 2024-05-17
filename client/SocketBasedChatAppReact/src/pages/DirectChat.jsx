@@ -4,9 +4,9 @@ import { useConnStore } from '../store/store';
 import ChatRoom from '../components/ChatRoom';
 import WaitingRoom from '../components/WaitingRoom';
 import axios from 'axios';
-import { IoIosPeople } from 'react-icons/io';
+import { IoIosPerson } from 'react-icons/io';
 
-const GroupChat = () => {
+const DirectChat = () => {
     const { conn, setConn } = useConnStore();
     const [messages, setMessages] = useState([]);
     const [chatRoom, setChatRoom] = useState("");
@@ -21,10 +21,10 @@ const GroupChat = () => {
                 .build();
 
             //SET UP HANDLERS
-            //triggers when join chat
-            conn.on("ReceiveMessage", (username, msg) => {
-                setMessages((messages) => [...messages, { sender: username, message: msg }])
-            })
+            // //triggers when join chat
+            // conn.on("ReceiveMessage", (username, msg) => {
+            //     setMessages((messages) => [...messages, { sender: username, message: msg }])
+            // })
 
             //triggers when send message
             conn.on("ReceiveSpecificMessage", (username, msg) => {
@@ -65,19 +65,19 @@ const GroupChat = () => {
         <div className="m-auto h-screen flex flex-col items-center justify-center bg-cyan-50">
             <div className='bg-blue-200 py-8 px-8 rounded'>
                 <h1 className="flex flex-row flex-start pb-6">
-                    <IoIosPeople size={40} className="mr-4 text-blue-900" />
+                    <IoIosPerson size={40} className="mr-4 text-blue-900" />
                     <p className='text-3xl font-bold'>
                         {chatRoom} chat
                     </p>
                 </h1>
                 <hr className='w-full' />
                 {conn ?
-                    <ChatRoom type="group" messages={messages} setMessages={setMessages} sendMessage={sendMessage} chatRoom={chatRoom} username={username} /> :
-                    <WaitingRoom type="group" joinChatRoom={joinChatRoom} username={username} setUsername={setUsername} chatRoom={chatRoom} setChatRoom={setChatRoom} />
+                    <ChatRoom type="direct" messages={messages} setMessages={setMessages} sendMessage={sendMessage} chatRoom={chatRoom} username={username} /> :
+                    <WaitingRoom type="direct" joinChatRoom={joinChatRoom} username={username} setUsername={setUsername} chatRoom={chatRoom} setChatRoom={setChatRoom} />
                 }
             </div>
         </div>
     )
 }
 
-export default GroupChat
+export default DirectChat

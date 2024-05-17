@@ -1,81 +1,34 @@
-import { useState } from "react"
-import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
-import ChatRoom from "../components/ChatRoom";
-import WaitingRoom from "../components/WaitingRoom";
-import axios from "axios";
+import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { useConnStore } from "../store/store";
+import { AiOutlineGlobal } from "react-icons/ai";
+import { IoIosPeople } from "react-icons/io";
+import { IoPerson } from "react-icons/io5";
 
 function Dashboard() {
     const navigate = useNavigate();
-    const conn = useConnStore((state) => state.conn);
-    const setConn = useConnStore((state) => state.setConn);
-    const [messages, setMessages] = useState([]);
-    const [chatRoom, setChatRoom] = useState("");
-    const [username, setUsername] = useState("");
-
-    const joinChatRoom = async (username, chatRoom) => {
-        try {
-            //initiate conn
-            const conn = new HubConnectionBuilder()
-                .withUrl("http://localhost:5278/chat")
-                .configureLogging(LogLevel.Information)
-                .build();
-
-            //SET UP HANDLERS
-            //triggers when join chat
-            conn.on("ReceiveMessage", (username, msg) => {
-                setMessages((messages) => [...messages, { sender: username, message: msg }])
-            })
-
-            //triggers when send message
-            conn.on("ReceiveSpecificMessage", (username, msg) => {
-                setMessages((messages) => [...messages, { sender: username, message: msg }])
-            })
-
-            await conn.start();
-            await conn.invoke("JoinSpecificChatRoom", { username, chatRoom });
-            setConn(conn);
-
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    const sendMessage = async (chatRoom, message, sender) => {
-        try {
-            await conn.invoke("SendMessage", message);
-            await postMessagesToDb(chatRoom, message, sender);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    const postMessagesToDb = async (chatRoom, message, sender) => {
-        await axios.post('http://localhost:5278/api/message', {
-            room: chatRoom,
-            message: message,
-            sender: sender
-        })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
 
     return (
-        <div>
-            <h1>Welcome to Socket Chat App!</h1>
-            <div>
-                <button onClick={() => navigate('/global-chat')}>Global Chat</button>
-                <button onClick={() => navigate('/group-chat')}>Group Chat</button>
+        <div className="m-auto h-screen flex flex-col items-center justify-center">
+            <h1 className="text-3xl font-bold ">Socket Based</h1>
+            <h1 className="text-3xl font-bold mb-8">Chat App</h1>
+            <div className="flex flex-col gap-4 ">
+                <Button className="flex flex-row" onClick={() => navigate('/global-chat')}>
+                    <AiOutlineGlobal size={20} className="mr-4 text-slate-300 " />
+                    <p>Join Global Chat</p>
+                </Button>
+                <Button className="flex flex-row " onClick={() => navigate('/group-chat')}>
+                    <IoIosPeople size={20} className="mr-4 text-slate-300" />
+                    <p>
+                        Join Group Chat
+                    </p>
+                </Button>
+                <Button className="flex flex-row " onClick={() => navigate('/direct-chat')}>
+                    <IoPerson size={20} className="mr-4 text-slate-300" />
+                    <p>
+                        Join Direct Chat
+                    </p>
+                </Button>
             </div>
-            {/* {conn ?
-                <ChatRoom messages={messages} setMessages={setMessages} sendMessage={sendMessage} chatRoom={chatRoom} username={username} /> :
-                <WaitingRoom joinChatRoom={joinChatRoom} username={username} setUsername={setUsername} chatRoom={chatRoom} setChatRoom={setChatRoom} />
-            } */}
         </div>
     )
 }

@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
 
 const SendMessageForm = ({ type, sendMessage, chatRoom, username }) => {
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
     return (
-        <form
+        <form className="flex flex-row gap-2"
             onSubmit={async (e) => {
                 e.preventDefault();
                 setLoading(true);
@@ -17,9 +19,8 @@ const SendMessageForm = ({ type, sendMessage, chatRoom, username }) => {
                 setLoading(false);
             }}
         >
-            <h5>Chat</h5>
-            <input value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Type message..." />
-            <button type="submit" disabled={!message}>{loading ? 'Sending...' : 'Send'}</button>
+            <Input value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Type message..." />
+            <Button type="submit" disabled={!message}>{loading ? 'Sending...' : 'Send'}</Button>
         </form>
     )
 }
